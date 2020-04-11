@@ -1,0 +1,13 @@
+CREATE TABLE `markets_india_calculated_ratios` (
+  `instrument_id` int(11) DEFAULT NULL,
+  `roe` float DEFAULT NULL,
+  `roa` float DEFAULT NULL,
+  `cmp` float DEFAULT NULL,
+  `price_to_book` float DEFAULT NULL,
+  `price_to_earnings` float DEFAULT NULL,
+  `price_to_sales` float DEFAULT NULL,
+  `market_cap` float DEFAULT NULL,
+  `net_margin` float DEFAULT NULL,
+  `profit_growth` float DEFAULT NULL,
+  `revenue_growth` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf-8;

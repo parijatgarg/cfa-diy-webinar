@@ -1,0 +1,20 @@
+This is a repository containing sample code used during the CFA Society India's DIY session on building your own quantitative analytics system.
+
+The important thing here is the look at the code samples. To get the code actually running requires quite a lot of work.
+
+1. You'd have to install a MySQL server (or start an instance on AWS RDS or equivalent)
+
+2. You should have the privileges to be able to run a flask app server (for running the screener code)
+
+3. A few files might require you to hardcode database access credentials. If you have any intention of adapting this code for production use, you must set up your own mechanism to securely provide credentials to set up database connections
+
+4. You should setup a python3 virtual environment and install the libraries specified in requirements.txt
+
+5. Any download scripts simply download files to the local filesystem. In a production system, you would want to directly store these files in a reliable distributed data storage system (such as AWS S3).
+
+6. There are SQL table creation files. These will create the tables in your database but will obviously not populate the same. Again, the idea here is to demonstrate the kind of schema these tables can have.
+
+
+Note: All this code is provided with no guarantee of suitability for use in a real system or otherwise. All code, table schemas etc are subject to copyright and you may not claim any right to the use of this code, nor to prevent someone else from using it. However, you are free to peruse the same and even make copies of the code to learn from it.
+
+&copy; All rights reserved

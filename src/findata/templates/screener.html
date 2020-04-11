@@ -1,0 +1,89 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="//www.tofler.in/js/sorttable.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">Test Screener</a>
+        </nav>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col sm-12">
+                    <form action="/" method="post">
+                        <div class="form-group">
+                          <label for="comment">Query:</label>
+                          <textarea class="form-control" rows="3" id="query" name="query">{{query}}</textarea>
+                        </div>
+                        <input type="submit" value="Filter" class="btn btn-primary">
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Help
+                      </a>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col sm-12">
+                    <div class="collapse" id="collapseExample">
+                      <div class="card card-body">
+                        You can compose your query as a string:<br><br>
+
+                        Market_Cap > 500 and Price_To_Book < 2<br><br>
+
+                        Available fields include: <br>
+                        <b>ROE, ROA, Price_To_Book, Price_To_Earnings, Price_To_Sales,
+                            Market_Cap, Net_Margin, Profit_Growth, Revenue_Growth
+                        </b>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            {% if results and results|length > 0 %}
+            <div class="row">
+                <div class="col sm-12">
+                    <h5>{{results|length}} results found</h5>
+                    <table class="table table-striped sortable" id="resultsTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>CMP</th>
+                                <th>ROE</th>
+                                <th>ROA</th>
+                                <th>Market Cap</th>
+                                <th>Revenue Growth</th>
+                                <th>Profit Growth</th>
+                                <th>P/B</th>
+                                <th>P/E</th>
+                                <th>P/S</th>
+                                <th>Net Margin</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for result in results %}
+                            <tr>
+                                <td>{{result.Name}}</td>
+                                <td>{{result.CMP}}</td>
+                                <td>{{'%0.1f' % result.ROE|float}}</td>
+                                <td>{{'%0.1f' % result.ROA|float}}</td>
+                                <td>{{'%0.0f' % result.Market_Cap|float}}</td>
+                                <td>{{'%0.1f' % result.Revenue_Growth|float}}</td>
+                                <td>{{'%0.1f' % result.Profit_Growth|float}}</td>
+                                <td>{{'%0.1f' % result.Price_To_Book|float}}</td>
+                                <td>{{'%0.1f' % result.Price_To_Earnings|float}}</td>
+                                <td>{{'%0.1f' % result.Price_To_Sales|float}}</td>
+                                <td>{{'%0.1f' % result.Net_Margin|float}}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </body>
+</html>
