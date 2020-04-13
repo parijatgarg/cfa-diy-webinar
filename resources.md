@@ -15,7 +15,7 @@
 * to practice and learn writing proper quantitative investing strategies, you can visit quantopian.com. The downside is that the code you write there depends on the libraries provided by quantopian. However, it is a good place to begin testing your ideas about quant investing - rather than getting tied up in the nitty gritty of getting data and building all the related infrastructure.
 
 
-# Books on Algos
+### Books on Algos
 
 To be honest, there are few books on algo trading that tell you anything more than superficial strategy related stuff. The only books I've come across that honestly talk about (some of) the real-world challenges of building a good strategy and back testing it are by Ernie Chan. You can find information about his books at https://www.epchan.com/books/
 
