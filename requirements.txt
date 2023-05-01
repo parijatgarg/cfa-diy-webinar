@@ -1,5 +1,5 @@
 pandas>=0.24.1
-Flask==1.1.1
+Flask==2.3.2
 boto
 requests
 mysql-connector-python==1.2.3
